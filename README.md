@@ -1,2 +1,2 @@
 # vue-get-list
-Vue app with  list of shares in the store "Silpo"
+Vue app with  list with requests to https://jsonplaceholder.typicode.com/
