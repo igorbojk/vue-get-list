@@ -7,7 +7,12 @@
 <body>
 <!-- use a wrapper div since vue can't bind to the body directly -->
 <div id="vue-app">
-    {{ message }}
+
+    <ul>
+        <li v-for="item in list">
+            {{item}}
+        </li>
+    </ul>
     <hello></hello>
 </div>
 <script type="application/javascript" src="build/app.js"></script>
