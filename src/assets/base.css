@@ -1,0 +1,8 @@
+.show-only-small-dev{
+    display: none;
+}
+@media screen and (max-width: 945px) {
+    .show-only-small-dev{
+        display: block ;
+    }
+}
