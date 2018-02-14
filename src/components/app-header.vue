@@ -1,5 +1,5 @@
 <template>
-    <div class="page-container md-layout-column">
+    <div class="app-header">
         <md-toolbar class="md-primary">
             <md-button class="md-icon-button show-only-small-dev" @click="showNavigation = true">
                 <md-icon>menu</md-icon>
@@ -7,14 +7,24 @@
             <span class="md-title">My Title</span>
 
             <div class="md-toolbar-section-end md-small-hide">
-                <md-button >Posts</md-button>
-                <md-button >Comments</md-button>
-                <md-button >Albums</md-button>
-                <md-button >Photos</md-button>
-                <md-button >Todos</md-button>
-                <md-button >Users</md-button>
-
-
+                <md-button>
+                    <router-link to="posts">Posts</router-link>
+                </md-button>
+                <md-button>
+                    <router-link to="comments">Comments</router-link>
+                </md-button>
+                <md-button>
+                    <router-link to="albums">Albums</router-link>
+                </md-button>
+                <md-button>
+                    <router-link to="photos">Photos</router-link>
+                </md-button>
+                <md-button>
+                    <router-link to="todos">Todos</router-link>
+                </md-button>
+                <md-button>
+                    <router-link to="users">Users</router-link>
+                </md-button>
             </div>
         </md-toolbar>
 
@@ -24,28 +34,28 @@
             </md-toolbar>
 
             <md-list>
-                <md-list-item>
-                    <span class="md-list-item-text">Posts</span>
+                <md-list-item >
+                    <router-link to="posts">Posts</router-link>
                 </md-list-item>
 
                 <md-list-item>
-                    <span class="md-list-item-text">Comments</span>
+                    <router-link to="comments">Comments</router-link>
                 </md-list-item>
 
                 <md-list-item>
-                    <span class="md-list-item-text">Albums</span>
+                    <router-link to="albums">Albums</router-link>
                 </md-list-item>
 
                 <md-list-item>
-                    <span class="md-list-item-text">Photos</span>
+                    <router-link to="photos">Photos</router-link>
                 </md-list-item>
 
                 <md-list-item>
-                    <span class="md-list-item-text">Todos</span>
+                    <router-link to="todos">Todos</router-link>
                 </md-list-item>
 
                 <md-list-item>
-                    <span class="md-list-item-text">Users</span>
+                    <router-link to="sers">Users</router-link>
                 </md-list-item>
 
             </md-list>
@@ -66,9 +76,12 @@
 
 </script>
 
-<style scoped>
-    .app-drawer{
-        background: white;
-    }
+<style lang="sass" scoped>
+    .app-header
+        a
+            color: inherit
+            text-decoration: none
+        .md-drawer
+            background: white
 
 </style>

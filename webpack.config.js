@@ -7,7 +7,6 @@ let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let entryPoint = './src/app.js';
 let cssAssets = './src/assets/index.js';
-let materializeJs = './node_modules/materialize-css/dist/js/materialize.min.js';
 let outputPath = path.resolve(__dirname, './public');
 let fileName = 'app.js';
 
@@ -35,7 +34,7 @@ if (env === 'production') {
 // Main webpack config
 module.exports = {
     entry: {
-        app: [ entryPoint, materializeJs , cssAssets]
+        app: [ entryPoint , cssAssets]
     },
     output: {
         path: outputPath,
