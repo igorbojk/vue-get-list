@@ -8,7 +8,7 @@
 
             <div class="md-toolbar-section-end md-small-hide">
                 <md-button>
-                    <router-link to="posts">Posts</router-link>
+                    <router-link to="posts" router-link-active="posts">Posts</router-link>
                 </md-button>
                 <md-button>
                     <router-link to="comments">Comments</router-link>
@@ -83,5 +83,6 @@
             text-decoration: none
         .md-drawer
             background: white
-
+        .router-link-active
+            color: #ff5252
 </style>

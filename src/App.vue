@@ -2,8 +2,6 @@
     <div>
         <app-header></app-header>
         <app-content></app-content>
-
-        <button @click="getAllPosts()">test</button>
     </div>
 </template>
 
@@ -13,10 +11,8 @@
     import VueRouter from 'vue-router';
     import VueMaterial from 'vue-material';
     import 'vue-material/dist/vue-material.min.css';
+    import 'vue-material/dist/theme/default.css'
 
-    // Services
-
-    import ApiService from './services/ApiService.js';
 
     // Components
     import AppHeader from './components/app-header.vue';
@@ -68,25 +64,19 @@
         name: "app",
         components: {
             appContent: AppContent,
-                appHeader: AppHeader,
-                posts: Posts,
-                comments: Comments,
-                albums: Albums,
-                photos: Photos,
-                todos: Todos,
-                users: Users,
+            appHeader: AppHeader,
+            posts: Posts,
+            comments: Comments,
+            albums: Albums,
+            photos: Photos,
+            todos: Todos,
+            users: Users,
         },
         data: function() {
             return {
             }
         },
         methods: {
-            getAllPosts: function () {
-                return ApiService.getPosts()
-                    .then(response => {
-                        console.log(response)
-                    })
-            }
         },
         router: router,
     }
