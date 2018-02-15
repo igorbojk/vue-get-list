@@ -6,3 +6,19 @@
         display: block ;
     }
 }
+
+.container{
+    padding: 12px 0;
+}
+
+.container .md-gutter{
+    margin: 0;
+}
+
+.md-layout-item{
+    margin-bottom: 12px;
+}
+
+.md-overlay{
+    position: fixed;
+}

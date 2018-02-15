@@ -7,7 +7,6 @@
 
 <script>
     import Vue from 'vue';
-    import VueResource from 'vue-resource';
     import VueRouter from 'vue-router';
     import VueMaterial from 'vue-material';
     import 'vue-material/dist/vue-material.min.css';
@@ -27,7 +26,6 @@
 
     // Use
     Vue.use(VueMaterial);
-    Vue.use(VueResource);
     Vue.use(VueRouter);
 
     // Routes
