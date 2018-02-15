@@ -4,8 +4,26 @@
             <loader></loader>
         </div>
         <div v-else-if="viewState == 'RESULT'">
-            <div class="md-layout md-gutter md-alignment-center">
-                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 post-card" v-for="post in posts">
+
+            <div class="md-layout md-gutter ">
+                <div class="md-layout-item md-size-100">
+                    <md-card>
+                        <div class="search-block">
+                            <md-field md-clearable>
+                                <md-icon>search</md-icon>
+                                <md-input v-model="query" placeholder="Search" autofocus ></md-input>
+                            </md-field>
+                        </div>
+                    </md-card>
+                </div>
+                <div v-if="!filteredPosts.length" class="md-layout md-gutter md-alignment-center">
+                    <md-empty-state
+                        md-icon="not_interested"
+                        md-label="No posts"
+                        md-description="Try search another post name">
+                    </md-empty-state>
+                </div>
+                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 post-card" v-for="post in filteredPosts">
                     <md-card md-with-hover >
                         <md-ripple>
                             <md-card-header>
@@ -44,9 +62,19 @@
           return {
               posts: [],
               viewState: 'LOADING',
+              query: '',
           }
         },
         methods: {
+        },
+        computed: {
+            filteredPosts: function () {
+                return this.posts.filter(
+                    (post) => {
+                        return post.title.indexOf(this.query) > -1;
+                    }
+                );
+            }
         },
         mounted: function () {
             return ApiService.getPosts()

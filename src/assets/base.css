@@ -22,3 +22,6 @@
 .md-overlay{
     position: fixed;
 }
+.search-block{
+    padding: 0 12px;
+}
