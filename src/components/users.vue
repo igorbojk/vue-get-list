@@ -5,7 +5,24 @@
         </div>
         <div v-else-if="viewState == 'RESULT'">
             <div class="md-layout md-gutter ">
-                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 user-card" v-for="user in users">
+                <div class="md-layout-item md-size-100">
+                    <md-card>
+                        <div class="search-block">
+                            <md-field md-clearable>
+                                <md-icon>search</md-icon>
+                                <md-input v-model="query" placeholder="Search" autofocus ></md-input>
+                            </md-field>
+                        </div>
+                    </md-card>
+                </div>
+                <div v-if="!filteredUsers.length" class="md-layout md-gutter md-alignment-center">
+                    <md-empty-state
+                            md-icon="not_interested"
+                            md-label="No Users"
+                            md-description="Try search another user name">
+                    </md-empty-state>
+                </div>
+                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 user-card" v-for="user in filteredUsers">
 
                     <md-card md-with-hover >
                         <md-toolbar :md-elevation="1">
@@ -59,9 +76,17 @@
             return {
                 users: [],
                 viewState: 'LOADING',
+                query: '',
             }
         },
         methods: {
+        },
+        computed: {
+            filteredUsers: function () {
+                return this.users.filter((user) => {
+                    return user.name.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
+                });
+            }
         },
         mounted: function () {
             return ApiService.getUsers()

@@ -4,8 +4,25 @@
             <loader></loader>
         </div>
         <div v-else-if="viewState == 'RESULT'">
-            <div class="md-layout md-gutter md-alignment-center">
-                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 comment-card" v-for="comment in comments">
+            <div class="md-layout md-gutter">
+                <div class="md-layout-item md-size-100">
+                    <md-card>
+                        <div class="search-block">
+                            <md-field md-clearable>
+                                <md-icon>search</md-icon>
+                                <md-input v-model="query" placeholder="Search" autofocus ></md-input>
+                            </md-field>
+                        </div>
+                    </md-card>
+                </div>
+                <div v-if="!filteredComments.length" class="md-layout md-gutter md-alignment-center">
+                    <md-empty-state
+                            md-icon="not_interested"
+                            md-label="No comments"
+                            md-description="Try search another comment name">
+                    </md-empty-state>
+                </div>
+                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 comment-card" v-for="comment in filteredComments">
                     <md-card md-with-hover >
                         <md-ripple>
                             <md-card-header>
@@ -42,9 +59,19 @@
             return {
                 comments: [],
                 viewState: 'LOADING',
+                query: '',
             }
         },
         methods: {
+        },
+        computed: {
+            filteredComments: function () {
+                return this.comments.filter(
+                    (comment) => {
+                        return comment.name.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
+                    }
+                );
+            }
         },
         mounted: function () {
             return ApiService.getComments()

@@ -71,7 +71,7 @@
             filteredPosts: function () {
                 return this.posts.filter(
                     (post) => {
-                        return post.title.indexOf(this.query) > -1;
+                        return post.title.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
                     }
                 );
             }

@@ -5,7 +5,24 @@
         </div>
         <div v-else-if="viewState == 'RESULT'">
             <div class="md-layout md-gutter md-alignment-center">
-                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 photo-card" v-for="photo in photos">
+                <div class="md-layout-item md-size-100">
+                    <md-card>
+                        <div class="search-block">
+                            <md-field md-clearable>
+                                <md-icon>search</md-icon>
+                                <md-input v-model="query" placeholder="Search" autofocus ></md-input>
+                            </md-field>
+                        </div>
+                    </md-card>
+                </div>
+                <div v-if="!filteredPhotos.length" class="md-layout md-gutter md-alignment-center">
+                    <md-empty-state
+                            md-icon="not_interested"
+                            md-label="No photos"
+                            md-description="Try search another photo name">
+                    </md-empty-state>
+                </div>
+                <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 photo-card" v-for="photo in filteredPhotos">
                     <md-card md-with-hover v-bind:style="{backgroundImage: `url('${photo.thumbnailUrl}')`}" class="card-with-bg">
                         <md-ripple>
                             <md-card-header>
@@ -36,9 +53,17 @@
             return {
                 photos: [],
                 viewState: 'LOADING',
+                query: '',
             }
         },
         methods: {
+        },
+        computed: {
+            filteredPhotos: function () {
+                return this.photos.filter((photo) => {
+                    return photo.title.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
+                });
+            }
         },
         mounted: function () {
             return ApiService.getPhotos()
