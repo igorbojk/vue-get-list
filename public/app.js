@@ -11683,6 +11683,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["default"].use(__WEBPACK_IMPORTED_MODULE_1_vue
 // Routes
 const router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: [{
+        path: '/',
+        redirect: '/posts'
+    }, {
         path: '/posts',
         component: __WEBPACK_IMPORTED_MODULE_7__components_posts_vue__["a" /* default */]
     }, {
@@ -12367,7 +12370,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -13398,7 +13401,13 @@ var render = function() {
             [
               _c(
                 "router-link",
-                { attrs: { to: "posts", "router-link-active": "posts" } },
+                {
+                  attrs: {
+                    to: "posts",
+                    "router-link-exact-active": "active",
+                    exact: ""
+                  }
+                },
                 [
                   _c("md-button", [
                     _vm._v("\n                    Posts\n                ")

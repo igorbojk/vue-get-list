@@ -32,6 +32,10 @@
     const router = new VueRouter({
         routes: [
             {
+                path: '/',
+                redirect: '/posts',
+            },
+            {
                 path: '/posts',
                 component: Posts,
             },

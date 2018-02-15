@@ -7,7 +7,7 @@
             <span class="md-title">My Vue App</span>
 
             <div class="md-toolbar-section-end md-small-hide">
-                <router-link to="posts" router-link-active="posts">
+                <router-link to="posts" router-link-exact-active="active" exact>
                     <md-button>
                         Posts
                     </md-button>
