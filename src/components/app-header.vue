@@ -7,32 +7,32 @@
             <span class="md-title">My Vue App</span>
 
             <div class="md-toolbar-section-end md-small-hide">
-                <router-link to="posts" router-link-exact-active="active" exact>
+                <router-link :to="{name: 'posts'}" >
                     <md-button>
                         Posts
                     </md-button>
                 </router-link>
-                <router-link to="comments">
+                <router-link :to="{name: 'comments'}">
                     <md-button>
                         Comments
                     </md-button>
                 </router-link>
-                <router-link to="albums">
+                <router-link :to="{name: 'albums'}">
                     <md-button>
                         Albums
                     </md-button>
                 </router-link>
-                <router-link to="photos">
+                <router-link :to="{name: 'photos'}">
                     <md-button>
                         Photos
                     </md-button>
                 </router-link>
-                <router-link to="todos">
+                <router-link :to="{name: 'todos'}">
                     <md-button>
                         Todos
                     </md-button>
                 </router-link>
-                <router-link to="users">
+                <router-link :to="{name: 'users'}">
                     <md-button>
                         Users
                     </md-button>

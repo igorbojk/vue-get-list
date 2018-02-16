@@ -23,37 +23,38 @@
                     </md-empty-state>
                 </div>
                 <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 user-card" v-for="user in filteredUsers">
+                    <router-link :to="{name: 'singleUser', params: {id: user.id} }">
+                        <md-card md-with-hover >
+                            <md-toolbar :md-elevation="1" class="md-accent">
+                                <div class="md-title">{{user.name}}</div>
+                                <div class="md-subhead"><strong>Username:</strong> {{user.username}}</div>
+                                <div class="md-subhead"><strong>Email:</strong> {{user.email}}</div>
+                            </md-toolbar>
+                            <md-list>
+                                <div class="md-subhead"><strong>Phone:</strong> {{user.phone}}</div>
+                                <div class="md-subhead"><strong>Website:</strong> {{user.website}}</div>
+                                <md-divider></md-divider>
+                                <md-subheader>Address</md-subheader>
+                                <md-list-item v-for="(key,value) in user.address" v-if="value != 'geo'">
+                                    <div class="md-list-item-text">
+                                        <span>{{key}}</span>
+                                        <span class="md-subhead">{{value}}</span>
+                                    </div>
+                                </md-list-item>
 
-                    <md-card md-with-hover >
-                        <md-toolbar :md-elevation="1">
-                            <div class="md-title">{{user.name}}</div>
-                            <div class="md-subhead"><strong>Username:</strong> {{user.username}}</div>
-                            <div class="md-subhead"><strong>Email:</strong> {{user.email}}</div>
-                        </md-toolbar>
-                        <md-list>
-                            <div class="md-subhead"><strong>Phone:</strong> {{user.phone}}</div>
-                            <div class="md-subhead"><strong>Website:</strong> {{user.website}}</div>
-                            <md-divider></md-divider>
-                            <md-subheader>Address</md-subheader>
-                            <md-list-item v-for="(key,value) in user.address" v-if="value != 'geo'">
-                                <div class="md-list-item-text">
-                                    <span>{{key}}</span>
-                                    <span class="md-subhead">{{value}}</span>
-                                </div>
-                            </md-list-item>
+                                <md-divider></md-divider>
+                                <md-subheader>Company</md-subheader>
 
-                            <md-divider></md-divider>
-                            <md-subheader>Company</md-subheader>
+                                <md-list-item v-for="(key,value) in user.company">
+                                    <div class="md-list-item-text">
+                                        <span>{{key}}</span>
+                                        <span class="md-subhead">{{value}}</span>
+                                    </div>
+                                </md-list-item>
 
-                            <md-list-item v-for="(key,value) in user.company">
-                                <div class="md-list-item-text">
-                                    <span>{{key}}</span>
-                                    <span class="md-subhead">{{value}}</span>
-                                </div>
-                            </md-list-item>
-
-                        </md-list>
-                    </md-card>
+                            </md-list>
+                        </md-card>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -106,6 +107,9 @@
 
 <style lang="sass" scoped>
     .user-card
+        a
+            text-decoration: none
+            color: inherit
         .md-title,
         .md-subhead
             margin-left: 0

@@ -23,20 +23,22 @@
                     </md-empty-state>
                 </div>
                 <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 comment-card" v-for="comment in filteredComments">
-                    <md-card md-with-hover >
-                        <md-ripple>
-                            <md-card-header>
-                                <div class="md-title">{{comment.name}}</div>
-                                <div class="md-subhead">{{comment.email}}</div>
-                            </md-card-header>
+                    <router-link :to="{name: 'singleComment', params: {id: comment.id} }">
+                        <md-card md-with-hover>
+                            <md-ripple>
+                                <md-card-header>
+                                    <div class="md-title">{{comment.name}}</div>
+                                    <div class="md-subhead">{{comment.email}}</div>
+                                </md-card-header>
 
-                            <md-card-content>
-                                <div class="content">
-                                    {{comment.body}}
-                                </div>
-                            </md-card-content>
-                        </md-ripple>
-                    </md-card>
+                                <md-card-content>
+                                    <div class="content">
+                                        {{comment.body}}
+                                    </div>
+                                </md-card-content>
+                            </md-ripple>
+                        </md-card>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -91,6 +93,9 @@
 
 <style lang="sass" scoped>
     .comment-card
+        a
+            text-decoration: none
+            color: inherit
         .md-title,
         .md-subhead
             white-space: nowrap

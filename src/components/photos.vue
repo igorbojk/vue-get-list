@@ -23,13 +23,11 @@
                     </md-empty-state>
                 </div>
                 <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 photo-card" v-for="photo in filteredPhotos">
-                    <md-card md-with-hover v-bind:style="{backgroundImage: `url('${photo.thumbnailUrl}')`}" class="card-with-bg">
-                        <md-ripple>
-                            <md-card-header>
-                                <div class="md-title">{{photo.title}}</div>
-                                <div class="md-subhead">{{photo.id}}</div>
-                            </md-card-header>
-                        </md-ripple>
+                    <md-card v-bind:style="{backgroundImage: `url('${photo.thumbnailUrl}')`}" class="card-with-bg">
+                        <md-card-header>
+                            <div class="md-title">{{photo.title}}</div>
+                            <div class="md-subhead">{{photo.id}}</div>
+                        </md-card-header>
                     </md-card>
                 </div>
             </div>

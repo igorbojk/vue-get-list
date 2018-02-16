@@ -6,7 +6,7 @@
         <div v-else-if="viewState == 'RESULT'">
             <div class="md-layout md-gutter md-alignment-center">
                 <div class="md-layout-item md-size-100">
-                    <md-card>
+                        <md-card>
                         <div class="search-block">
                             <md-field md-clearable>
                                 <md-icon>search</md-icon>
@@ -23,14 +23,16 @@
                     </md-empty-state>
                 </div>
                 <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100 album-card" v-for="album in filteredAlbums">
-                    <md-card md-with-hover >
-                        <md-ripple>
-                            <md-card-header>
-                                <div class="md-title">{{album.title}}</div>
-                                <div class="md-subhead">{{album.id}}</div>
-                            </md-card-header>
-                        </md-ripple>
-                    </md-card>
+                    <router-link :to="{name: 'singleAlbum', params: {id: album.id} }">
+                        <md-card md-with-hover >
+                            <md-ripple>
+                                <md-card-header>
+                                    <div class="md-title">{{album.title}}</div>
+                                    <div class="md-subhead">{{album.id}}</div>
+                                </md-card-header>
+                            </md-ripple>
+                        </md-card>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -85,6 +87,9 @@
 
 <style lang="sass"scoped>
     .album-card
+        a
+            text-decoration: none
+            color: inherit
         .md-title,
         .md-subhead
             white-space: nowrap

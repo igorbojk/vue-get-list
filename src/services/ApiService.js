@@ -11,11 +11,20 @@ export default {
     getPosts() {
         return Vue.http.get('https://jsonplaceholder.typicode.com/posts', this.options)
     },
+    getSinglePost(id) {
+        return Vue.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    },
     getComments() {
         return Vue.http.get('https://jsonplaceholder.typicode.com/comments', this.options)
     },
+    getSingleComment(id) {
+        return Vue.http.get(`https://jsonplaceholder.typicode.com/comments/${id}`)
+    },
     getAlbums() {
         return Vue.http.get('https://jsonplaceholder.typicode.com/albums', this.options)
+    },
+    getSingleAlbum(id) {
+        return Vue.http.get(`https://jsonplaceholder.typicode.com/albums/${id}`)
     },
     getPhotos() {
         return Vue.http.get('https://jsonplaceholder.typicode.com/photos', this.options)
@@ -25,6 +34,9 @@ export default {
     },
     getUsers() {
         return Vue.http.get('https://jsonplaceholder.typicode.com/users', this.options)
-    }
+    },
+    getSingleUser(id) {
+        return Vue.http.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    },
 
 }
