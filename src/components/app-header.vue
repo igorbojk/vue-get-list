@@ -47,27 +47,27 @@
 
             <md-list>
                 <md-list-item @click="closeNav()">
-                    <router-link to="posts" >Posts</router-link>
+                    <router-link :to="{name: 'posts'}"  >Posts</router-link>
                 </md-list-item>
 
                 <md-list-item @click="closeNav()">
-                    <router-link to="comments">Comments</router-link>
+                    <router-link :to="{name: 'comments'}">Comments</router-link>
                 </md-list-item>
 
                 <md-list-item @click="closeNav()">
-                    <router-link to="albums">Albums</router-link>
+                    <router-link :to="{name: 'albums'}">Albums</router-link>
                 </md-list-item>
 
                 <md-list-item @click="closeNav()">
-                    <router-link to="photos">Photos</router-link>
+                    <router-link :to="{name: 'photos'}">Photos</router-link>
                 </md-list-item>
 
                 <md-list-item @click="closeNav()">
-                    <router-link to="todos">Todos</router-link>
+                    <router-link :to="{name: 'todos'}">Todos</router-link>
                 </md-list-item>
 
                 <md-list-item @click="closeNav()">
-                    <router-link to="users">Users</router-link>
+                    <router-link :to="{name: 'users'}">Users</router-link>
                 </md-list-item>
 
             </md-list>
